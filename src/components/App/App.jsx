@@ -1,7 +1,6 @@
 // імпорт компонент
 import React, { useEffect, useState, useRef } from 'react';
 import { Container } from './App.styled';
-
 import PhonebookForm from 'components/PhonebookForm';
 import ContactList from 'components/ContactList/ContactList';
 import Filter from 'components/Filter/Filter';
