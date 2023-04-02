@@ -4,14 +4,13 @@ import { Container } from './App.styled';
 import PhonebookForm from 'components/PhonebookForm';
 import ContactList from 'components/ContactList/ContactList';
 import Filter from 'components/Filter/Filter';
-
 const App = () => {
+  const initialized = useRef(false);
   const [contacts, setContacts] = useState([]);
   const [filter, setFilter] = useState('');
-  let initialized = false;
 
   useEffect(() => {
-    if (initialized) {
+    if (initialized.current) {
       return;
     }
     const contacts = localStorage.getItem('contacts');
@@ -19,7 +18,7 @@ const App = () => {
     if (parsedСontacts) {
       setContacts(parsedСontacts);
     }
-    initialized = true;
+    initialized.current = true;
   }, []);
 
   useEffect(() => {
